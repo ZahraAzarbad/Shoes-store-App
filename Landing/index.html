@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link class="rounded-full" rel="icon" type="images/x-icon" href="../src/img/logo-.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Shoea</title>
+</head>
+<body class="h-screen w-screen flex justify-center items-center">
+    
+    <div id="login-container" class="flex flex-col gap-3 justify-center items-center relative">
+
+        <div class="absolute left-0 top-0">
+            <i class="cursor-pointer bi bi-arrow-left"></i>
+        </div>
+        
+        <img class="w-40 h-40" src="../src/img/logo2.PNG" alt="logo of shoea">
+        <h1 class=" font-sans font-bold text-2xl mb-10">Login to Your Account </h1>
+
+        <div class="flex items-center bg-slate-300 rounded h-8 w-full px-2">
+            <i class=" text-slate-400 px-2 py-1 bi bi-envelope-fill"></i>
+            <input class="outline-none bg-slate-300" type="email" placeholder="Email">
+        </div>
+
+        <div class="w-full flex justify-between items-center bg-slate-300 rounded h-9 px-4">
+            <div>
+                
+                <i class=" text-slate-400 text-lg py-1 bi bi-lock-fill "></i>
+                <input class="outline-none bg-slate-300" type="password" placeholder="Password">
+            </div>
+            <div>
+                <i class="cursor-pointer py-1 text-slate-400 bi bi-eye-slash-fill"></i>
+                <i class="cursor-pointer py-1 text-slate-400 bi bi-eye-fill hidden"></i>
+            </div>
+            
+        </div>
+
+        <div class="flex items-center mt-2 mb-4">
+            <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember Me</label>
+        </div>
+        <div class="w-full flex items-end mt-20">
+            <button class="w-full rounded-3xl bg-green-600 text-white text-lg font-semibold h-10">
+Sing In
+            </button>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
