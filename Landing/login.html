@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              nunito: ["nunito", "sans-serif"],
+              Lilita: ["Lilita One", "cursive"],
+            },
+            colors: {
+              darktext: "#152536",
+            },
+            keyframes: {
+              wide: {
+                0: { width: "0", borderRight: "5px solid #152536" },
+                100: { width: "67%", borderRight: "5px solid #152536" },
+              },
+
+              fadeOut: {
+                0: { opacity: "0" },
+                100: { opacity: "1" },
+              },
+              fadeIn: {
+                0: { opacity: "1" },
+                100: { opacity: "0" },
+              },
+              comeLeft: {
+                0: { transform: "translateX(-300px)", opacity: "0" },
+                100: { transform: "translateX(0)", opacity: "1" },
+              },
+              comeUp: {
+                0: { transform: "translateY(-300px) translateX(-50%)" },
+                100: { transform: "translateY(0) translateX(-50%)" },
+              },
+              backUp: {
+                0: { transform: "translateY(0) translateX(-50%)" },
+                100: { transform: "translateY(-300px) translateX(-50%)" },
+              },
+            },
+            animation: {
+              wide: "wide 1s linear",
+              fadeOut: "fadeOut .8s ease-in forwards",
+              fadeIn: "fadeIn .8s ease-in forwards",
+              comeLeft: "comeLeft 1s ease-in forwards",
+              comeUp: "comeUp .6s ease-in forwards",
+              backUp: "backUp 1s ease-in forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .btn-color {
+          background-color: #475569;
+        }
+        .icon-color {
+          color: #475569;
+        }
+        .slate-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+      }
+    </style>
+    <link
+      class="rounded-full"
+      rel="icon"
+      type="images/x-icon"
+      href="../src/img/logo-.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shoea</title>
+  </head>
+  <body class="h-screen w-screen flex justify-center items-center font-nunito">
+    <div
+      id="login-container"
+      class="flex flex-col w-full h-full md:w-1/3 p-4 gap-7 justify-center items-center relative"
+    >
+      <div class="absolute left-5 top-5">
+        <i class="cursor-pointer bi bi-arrow-left"></i>
+      </div>
+      <div class="logo">
+        <img src="../src/img/logo (2).png" alt="logo of shoea" />
+      </div>
+
+      <h1 class="font-bold text-2xl text-darktext mb-8">
+        Login to Your Account
+      </h1>
+<form class="w-full flex flex-col gap-10">
+    <div
+    id="email-box"
+    class="flex items-center bg-slate-100 rounded w-full px-2 py-1 gap-2 border-slate-500 relative"
+  >
+    <i id="email-icon" class="text-slate-400 bi bi-envelope-fill"></i>
+    <input autocomplete="off"
+      id="email-input"
+      class="flex-1 py-1 outline-none border-0 bg-slate-100"
+      type="email"
+      placeholder="Email"
+    />
+    <p id="email-invalid-message" class=" absolute left-0 top-11 text-red-600 hidden">Email is not invalid!</p>
+</div>
+    
+  
+
+  <div
+    id="password-box"
+    class="w-full flex justify-between items-center border-slate-500 bg-slate-100 rounded px-2 py-1 gap-2 relative"
+  >
+    <i id="password-icon" class="text-slate-400 text-lg bi bi-lock-fill"></i>
+    <input
+      id="password-input"
+      class="flex-1 py-1 outline-none border-0 bg-slate-100"
+      type="password"
+      placeholder="Password"
+    />
+
+    <div id="show-password">
+      <i id="eye-icon"
+        class="eye-icon cursor-pointer py-1 text-slate-400 bi bi-eye-slash-fill"
+      ></i>
+      <i id="open-eye-icon"
+        class="eye-icon cursor-pointer py-1 text-slate-400 bi bi-eye-fill hidden"
+      ></i>
+    </div>
+    <p id="password-notcorrect-message" class=" absolute left-0 top-11 text-red-600 hidden">Password is not correct!</p>
+  </div>
+</form>
+   
+
+      <div class="flex items-center mt-2 mb-4">
+        <input
+          id="default-checkbox"
+          type="checkbox"
+          value=""
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <label
+          for="default-checkbox"
+          class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Remember Me</label
+        >
+      </div>
+      <div class="w-full flex items-end mt-5">
+        <button id="signin-btn"
+          class="w-full rounded-3xl bg-slate-900 btn-color text-white text-lg h-10"
+        >
+          Sing In
+        </button>
+      </div>
+    </div>
+    <script src="./js/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "users": [
+      { "id": 1,
+       "name": "zahra Azarbad",
+        "email": "zazarbad77@gmail.com",
+      "password":"123456",
+    "address":{
+      "home":"Mazandaran,Nowshahr,Dehno,12",
+      "office":"Tehran,Vanak,Valinajad,28"
+    } },
+      { "id": 2,
+       "name": "David Villa",
+        "email": "david7@gmail.com",
+      "password":"654321",
+      "address":{
+        "home":"Spain,Catalan,Barcelon,45",
+        "office":"Spain,Madrid,Bella,86"
+      }
+     }
+    ],
+    "products": [
+      { "id": 1,
+       "image": "some comment",
+       "smallImage":"",
+        "brand": 1,
+      "price":123,
+      "colors":[],
+"size":[]
+     }
+    ],
+    "orders": { "name": "typicode" }
+  }
