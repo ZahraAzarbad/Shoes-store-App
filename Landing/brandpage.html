@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              nunito: ["nunito", "sans-serif"],
+              Lilita: ["Lilita One", "cursive"],
+            },
+            colors: {
+              darktext: "#152536",
+            },
+            keyframes: {
+              wide: {
+                0: { width: "0", borderRight: "5px solid #152536" },
+                100: { width: "67%", borderRight: "5px solid #152536" },
+              },
+
+              fadeOut: {
+                0: { opacity: "0" },
+                100: { opacity: "1" },
+              },
+              fadeIn: {
+                0: { opacity: "1" },
+                100: { opacity: "0" },
+              },
+              comeLeft: {
+                0: { transform: "translateX(-300px)", opacity: "0" },
+                100: { transform: "translateX(0)", opacity: "1" },
+              },
+              comeUp: {
+                0: { transform: "translateY(-300px) translateX(-50%)" },
+                100: { transform: "translateY(0) translateX(-50%)" },
+              },
+              backUp: {
+                0: { transform: "translateY(0) translateX(-50%)" },
+                100: { transform: "translateY(-300px) translateX(-50%)" },
+              },
+            },
+            animation: {
+              wide: "wide 1s linear",
+              fadeOut: "fadeOut .8s ease-in forwards",
+              fadeIn: "fadeIn .8s ease-in forwards",
+              comeLeft: "comeLeft 1s ease-in forwards",
+              comeUp: "comeUp .6s ease-in forwards",
+              backUp: "backUp 1s ease-in forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .btn-color {
+          background-color: #475569;
+        }
+        .icon-color {
+          color: #475569;
+        }
+        .slate-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+      }
+    </style>
+    <link
+      class="rounded-full"
+      rel="icon"
+      type="images/x-icon"
+      href="../src/img/logo-.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shoea</title>
+  </head>
+  <body>
+    <header class="flex gap-5 m-3 mb-7">
+        <i id="back-arrow" class="bi bi-arrow-left text-xl cursor-pointer"></i>
+        <h2 id="brand-name" class="font-semibold text-xl">Nike</h2>
+    </header>
+    <main>
+        <div id="product-page-card-container" class="w-full gap-3 flex flex-wrap justify-center items-center">
+        
+          </div>
+    </main>
+    <script type="module" src="./js/brandPage.js"></script>
+  </body>
+  </html>

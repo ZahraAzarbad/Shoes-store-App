@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              nunito: ["nunito", "sans-serif"],
+              Lilita: ["Lilita One", "cursive"],
+            },
+            colors: {
+              darktext: "#152536",
+            },
+            keyframes: {
+              wide: {
+                "0%": { width: "0", borderRight: "5px solid #152536" },
+                "100%": { width: "67%", borderRight: "5px solid #152536" },
+              },
+
+              fadeOut: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              fadeIn: {
+                "0%": { opacity: "1" },
+                "100%": { opacity: "0" },
+              },
+              comeLeft: {
+                "0%": { transform: "translateX(-300px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              comeUp: {
+                "0%": { transform: "translateY(-300px) translateX(-50%)" },
+                "100%": { transform: "translateY(0) translateX(-50%)" },
+              },
+              backUp: {
+                "0%": { transform: "translateY(0) translateX(-50%)" },
+                "100%": { transform: "translateY(-300px) translateX(-50%)" },
+              },
+            },
+            animation: {
+              wide: "wide 1s linear",
+              fadeOut: "fadeOut .8s ease-in forwards",
+              fadeIn: "fadeIn .8s ease-in forwards",
+              comeLeft: "comeLeft 1s ease-in forwards",
+              comeUp: "comeUp .6s ease-in forwards",
+              backUp: "backUp 1s ease-in forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- <style type="text/tailwindcss">
+      @layer base {
+       
+      }
+    </style> -->
+    <link
+      class="rounded-full"
+      rel="icon"
+      type="images/x-icon"
+      href="../src/img/logo-.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shoea</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.11.0/lottie.min.js"
+      integrity="sha512-XCthc/WzPfa+oa49Z3TI6MUK/zlqd67KwyRL9/R19z6uMqBNuv8iEnJ8FWHUFAjC6srr8w3FMZA91Tfn60T/9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body
+    class="w-screen h-screen font-nunito overflow-y-scroll"
+  >
+    <header class="flex flex-col my-4 mx-4 overflow-x-hidden">
+      <div class="flex justify-between md:justify-center md:gap-72">
+       
+
+        <div class="flex gap-3">
+          <img
+            class="rounded-full"
+            src="../src/img/pro.png"
+            alt="profile image"
+          />
+          <div class="flex flex-col">
+            <div class="flex text-slate-500 gap-1 font-semibold">
+              <p>Good Morning</p>
+              <img
+                class="h-6 w-6"
+                src="../src/img/hand.png"
+                alt="Hand shaking"
+              />
+            </div>
+            <h4 class="font-bold">Zahra Azarbad</h4>
+          </div>
+        </div>
+
+       
+
+        <div class="flex items-center justify-center gap-2 md:gap-5">
+          <div class="hidden gap-4 text-gray-600 md:flex text-lg">
+            <p class="hover:text-slate-900 cursor-pointer">Card</p>
+            <p class="hover:text-slate-900 cursor-pointer" >Orders</p>
+            <p class="hover:text-slate-900 cursor-pointer">Wallet</p>
+             </div>
+          <i class="text-2xl bi bi-bell"></i>
+          <i class="text-2xl bi bi-heart"></i>
+        </div>
+      </div>
+
+      <div class="w-full flex-1 bg-slate-100 rounded-md mt-4 px-3">
+        <i class="text-xl text-slate-400 bi bi-search"></i>
+        <input
+          class="flex-1 bg-slate-100 h-11"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+    </header>
+    <section
+      id="brands"
+      class="md:flex md:justify-center md:gap-9 mx-1 text-slate-900 overflow-x-hidden"
+    >
+      <div class="flex gap-9 md:gap-16 mx-4 mb-4 overflow-hidden">
+        <div id="nike-logo" class="brand flex flex-col justify-center items-center">
+          <div
+            id="image"
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/nike.png" alt="nike's logo" />
+          </div>
+          <h4 class="font-semibold">Nike</h4>
+        </div>
+
+        <div id="adidas-logo" class="brand flex flex-col justify-center items-center">
+          <div
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/adidas.png" alt="adidas's logo" />
+          </div>
+          <h4 class="font-semibold">Adidas</h4>
+        </div>
+
+        <div id="puma-logo" class="brand flex flex-col justify-center items-center">
+          <div
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/puma.png" alt="puma's logo" />
+          </div>
+          <h4 class="font-semibold">Puma</h4>
+        </div>
+
+        <div id="asics-logo" class="brand flex flex-col justify-center items-center">
+          <div
+            id="image"
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/a6.png" alt="asics's logo" />
+          </div>
+          <h4 class="font-semibold">Asics</h4>
+        </div>
+      </div>
+      <div class="flex gap-7 md:gap-16 mx-4 mb-4 overflow-hidden">
+        <div id="reebok-logo"  class="brand flex flex-col justify-center items-center">
+          <div
+            id="image"
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/reebok.png" alt="reebok's logo" />
+          </div>
+          <h4 class="font-semibold">Reebok</h4>
+        </div>
+
+        <div id="newbalance-logo" class="brand flex flex-col justify-center items-center">
+          <div
+            id="image"
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/new.png" alt="newbalance's logo" />
+          </div>
+          <h4 class="font-semibold">NewBa..</h4>
+        </div>
+
+        <div id="converse-logo" class="brand flex flex-col justify-center items-center">
+          <div
+            id="image"
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <img src="../src/img/Converse.png" alt="converse's logo" />
+          </div>
+          <h4 class="font-semibold">Converse</h4>
+        </div>
+
+        <div class="brand flex flex-col justify-center items-center">
+          <div
+            id="image"
+            class="w-14 h-14 rounded-full bg-slate-200 flex justify-center items-center"
+          >
+            <div
+              class="h-5 w-5 flex justify-center items-center border border-slate-900 rounded-full"
+            >
+              <i class="text-slate-900 bi bi-three-dots"></i>
+            </div>
+          </div>
+          <h4 class="font-semibold">More...</h4>
+        </div>
+      </div>
+    </section>
+   
+    <main class="overflow-hidden m-4">
+      <header class="flex justify-between mx-2 my-4">
+        <h2 class="font-semibold text-xl text-slate-900">Most Popular</h2>
+        <h4 id="see-all-btn" class="font-semibold text-slate-900 cursor-pointer">See All</h4>
+      </header>
+      <div
+        id="list"
+        class="flex md:justify-center items-center overflow-x-scroll my-4 gap-2 md:gap-7 md:overflow-x-hidden"
+      >
+        <div id="all-btn"
+          class="flex justify-center items-center border-2 bg-gray-700 border-gray-700 rounded-full choose-brand"
+        >
+          <p class="px-4 py-1 font-semibold text-white">All</p>
+        </div>
+        <div id="nike-btn"
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full choose-brand"
+        >
+          <p class="px-4 py-1 font-semibold text-gray-700">Nike</p>
+        </div>
+        <div
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        >
+          <p class="px-4 py-1 font-semibold text-gray-700">Adidas</p>
+        </div>
+        <div
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        >
+          <p class="px-4 py-1 font-semibold text-gray-700">Puma</p>
+        </div>
+        <div
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        >
+          <p class="px-4 py-1 font-semibold text-gray-700">Asics</p>
+        </div>
+        <div
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        >
+          <p class="px-4 py-1 font-semibold text-gray-700">Reebok</p>
+        </div>
+        <!-- <div class="flex justify-center items-center border border-2 border-gray-700 rounded-full">
+  <p class="px-4 py-1 font-semibold text-gray-700">NewBalance</p>
+</div> -->
+        <div
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        >
+          <p class="px-4 py-1 font-semibold text-gray-700">Converse</p>
+        </div>
+      </div>
+      <div id="card-container" class="w-full gap-3 flex flex-wrap">
+      </div>
+    </main>
+
+    <footer
+      class="flex items-end justify-center gap-7 mx-5 py-2 font-semibold text-sm text-slate-900 md:hidden"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-house-door text-2xl text-slate-900 hidden"></i>
+        <i class="bi bi-house-door-fill text-2xl text-slate-900"></i>
+        <h4>Home</h4>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-bag text-2xl text-slate-900"></i>
+        <i class="bi bi-bag-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Cart</h4>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-cart2 text-2xl text-slate-900"></i>
+        <i class="bi bi-cart-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Orders</h4>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-wallet2 text-2xl text-slate-900"></i>
+        <i class="bi bi-wallet-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Wallet</h4>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-person text-2xl text-slate-900"></i>
+        <i class="bi bi-person-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Profile</h4>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/mainPage.js"></script>
+  </body>
+</html>
