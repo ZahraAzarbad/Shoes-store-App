@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              nunito: ["nunito", "sans-serif"],
+              Lilita: ["Lilita One", "cursive"],
+            },
+            colors: {
+              darktext: "#152536",
+            },
+            keyframes: {
+              wide: {
+                0: { width: "0", borderRight: "5px solid #152536" },
+                100: { width: "67%", borderRight: "5px solid #152536" },
+              },
+
+              fadeOut: {
+                0: { opacity: "0" },
+                100: { opacity: "1" },
+              },
+              fadeIn: {
+                0: { opacity: "1" },
+                100: { opacity: "0" },
+              },
+              comeLeft: {
+                0: { transform: "translateX(-300px)", opacity: "0" },
+                100: { transform: "translateX(0)", opacity: "1" },
+              },
+              comeUp: {
+                0: { transform: "translateY(-300px) translateX(-50%)" },
+                100: { transform: "translateY(0) translateX(-50%)" },
+              },
+              backUp: {
+                0: { transform: "translateY(0) translateX(-50%)" },
+                100: { transform: "translateY(-300px) translateX(-50%)" },
+              },
+            },
+            animation: {
+              wide: "wide 1s linear",
+              fadeOut: "fadeOut .8s ease-in forwards",
+              fadeIn: "fadeIn .8s ease-in forwards",
+              comeLeft: "comeLeft 1s ease-in forwards",
+              comeUp: "comeUp .6s ease-in forwards",
+              backUp: "backUp 1s ease-in forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- <style type="text/tailwindcss">
+      @layer utilities {
+        .btn-color {
+          background-color: #475569;
+        }
+        .icon-color {
+          color: #475569;
+        }
+        .slate-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+      }
+    </style> -->
+    <link
+      class="rounded-full"
+      rel="icon"
+      type="images/x-icon"
+      href="../src/img/logo-.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shoea</title>
+  </head>
+  <body class="w-screen font-nunito h-screen flex flex-col items-center overflow-hidden">
+    <header class="w-full flex gap-5 px-5 bg-gray-100 justify-start">
+        <i class="bi bi-arrow-left text-2xl"></i>
+    </header>
+
+    
+
+    <section class="w-full h-[300px] flex justify-center items-center relative overflow-hidden bg-gray-100 border-b-1 ">
+
+        <div class="bg-red-700 flex justify-center items-center sticky left-0 top-1/2 -translate-y-1/2">
+            <button
+            id="pre-btn"
+            class="w-5 z-10 text-slate-900 outline-0 rounded-full"
+            onclick="pre()"
+          >
+          <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          </div>
+
+      <div class="w-[300px] h-[250px] flex justify-center items-center">
+
+        <div class="slide w-full h-full flex flex-col justify-center items-center transition">
+           
+            <div class="w-[300px] h-[200px] flex justify-center items-center">
+
+              <img
+                class=" w-full md:rounded"
+                src="../src/img/Rectangle10.png"
+                alt="basketball sneaker and ball"
+              />
+             
+            </div>
+
+            <div class="flex justify-center gap-1">
+              <span class="bg-slate-800 w-3 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+            </div>
+           
+          </div>
+        <div class="slide w-full h-full flex flex-col justify-center items-center transition">
+           
+            <div class="w-[300px] h-[200px] flex justify-center items-center">
+
+              <img
+                class=" w-full md:rounded"
+                src="../src/img/Rectangle8.png"
+                alt="basketball sneaker and ball"
+              />
+             
+            </div>
+
+            <div class="flex justify-center gap-1">
+              <span class="bg-slate-800 w-3 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+            </div>
+           
+          </div>
+        <div class="slide w-full h-full flex flex-col justify-center items-center transition">
+           
+            <div class="w-[300px] h-[200px] flex justify-center items-center">
+
+              <img
+                class=" w-full md:rounded"
+                src="../src/img/Rectangle10.png"
+                alt="basketball sneaker and ball"
+              />
+             
+            </div>
+
+            <div class="flex justify-center gap-1">
+              <span class="bg-slate-800 w-3 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+            </div>
+           
+          </div>
+        <div class="slide w-full h-full flex flex-col justify-center items-center transition">
+           
+            <div class="w-[300px] h-[200px] flex justify-center items-center">
+
+              <img
+                class=" w-full md:rounded"
+                src="../src/img/Rectangle10.png"
+                alt="basketball sneaker and ball"
+              />
+             
+            </div>
+
+            <div class="flex justify-center gap-1">
+              <span class="bg-slate-800 w-3 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+              <span class="bg-slate-400 w-1 h-1 rounded-full"></span>
+            </div>
+           
+          </div>
+         
+      </div>
+
+       
+      <div class="bg-blue-500 sticky right-0 top-1/2 -translate-y-1/2">
+         <button
+        id="next-btn"
+        class="w-5 z-10 text-slate-900 outline-0 rounded-full"
+        onclick="next()"
+      >
+      <i class="bi bi-chevron-compact-right"></i>
+      </button>
+    </div>
+
+    
+      </section>
+    
+     
+         
+
+      <script src="./js/mainPage.js"></script>
+  </body>
+  </html>
