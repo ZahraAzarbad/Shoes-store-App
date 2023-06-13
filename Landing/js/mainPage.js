@@ -1,8 +1,7 @@
 import {Product} from "./product.js";
 
-const slides= document.querySelectorAll(".slide");
-const nextBtn= document.getElementById("next-btn");
-const preBtn= document.getElementById("pre-btn");
+
+
 const nikeLogo= document.getElementById("nike-logo");
 const adidasLogo= document.getElementById("adidas-logo");
 const pumaLogo= document.getElementById("puma-logo");
@@ -12,64 +11,30 @@ const newBalanceLogo= document.getElementById("newbalance-logo");
 const converseLogo= document.getElementById("converse-logo");
 const cardContainer= document.getElementById("card-container");
 const seeAllBtn= document.getElementById("see-all-btn");
+const brandsList= document.getElementById("list");
+const cardBtn= document.getElementById("card-btn");
+const orderBtn= document.getElementById("order-btn");
+const card= document.getElementById("card");
+const wishlist= document.getElementById("wishlist");
 
 
 
 ///////////////////////////////////////////
 const allBtn= document.getElementById("all-btn");
 const nikeBtn= document.getElementById("nike-btn");
-const chooseBrand= document.querySelectorAll(".choose-brand");
+const adidasBtn= document.getElementById("adidas-btn");
+const pumaBtn= document.getElementById("puma-btn");
+const asicsBtn= document.getElementById("asics-btn");
+const reebokBtn= document.getElementById("reebok-btn");
+const newbalanceBtn= document.getElementById("newbalance-btn");
+const converseBtn= document.getElementById("converse-btn");
 
-
-
-
-
-
-let count = 0;
-slides.forEach((slide,index)=>{
-    slide.style.left=`${index*100}%`
-console.log(index);
-   
-});
-
-const next=()=>{
-    count++
-    console.log("hi");
-    slideImage()
-}
-
-const pre=()=>{
-    // count--
-    // slideImage()
-}
-
-const slideImage=()=>{
-    slides.forEach((slide,index)=>{
-        slide.style.transform=`translateX(-${count*100}%)`
-        
-    })
-    if(count===3){
-        nextBtn.classList.add=('hidden')
-        
-    }
-    if(count===0){
-        preBtn.classList.add=('hidden')  
-    }
-}
-
-// nextBtn.addEventListener('click',()=>{
-//     console.log("hi");
-// })
-// preBtn.addEventListener('click',()=>{
-//     console.log("back");
-//     count--
-//     slideImage()
-// })
-
+//////////////////////////////////////////////////////////
 
 function generateCard(product){
     return ` <div
     data-id=${product.id}
+    onclick="productPage(this)"
     id="main-card"
     class="w-40 flex flex-col justify-center items-center"
   >
@@ -84,13 +49,14 @@ function generateCard(product){
 }
 
 function insertData(list){
+    cardContainer.innerHTML='';
     list.forEach((item)=>{
-        // cardContainer.innerHTML='';
 cardContainer.innerHTML += generateCard(new Product(item))
     })
 }
 
 function getProducts(){
+    
     const getPro = fetch(`http://localhost:3000/products`).then((response)=>{
         return response.json()
 
@@ -98,7 +64,7 @@ function getProducts(){
 insertData(data)
     })
 }
-// getProducts()
+getProducts()
 
 
 function getProductByFilter(brand){
@@ -154,32 +120,68 @@ converseLogo.addEventListener('click',()=>{
    
 })
 
+changeBrandsColor()
+function changeBrandsColor(){
+const listOfBrand = brandsList.children
+Array.from(listOfBrand).forEach((brand)=>{
+console.log(brand);
+brand.addEventListener('click',()=>{
+    resetColorBrand()
+    brand.classList.add('active-brand')
+})
+})
+}
 
+function resetColorBrand(){
+    const listOfBrand = brandsList.children
+    Array.from(listOfBrand).forEach((brand)=>{
+        brand.classList.remove('active-brand')
+        })  
+}
 
 allBtn.addEventListener('click',()=>{
     getProducts()
-    allBtn.style.backgroundColor="gray-700",
-    allBtn.style.border="gray-700",
-    allBtn.style.color="white",
-    chooseBrand.style.backgroundColor='#fff',
-    chooseBrand.style.border='gray-700',
-    chooseBrand.style.color='gray-700'
 })
-const myStyles = `
-    background-color: white;
-    border: 2px solid black;
-    color: black;
-`;
+
 nikeBtn.addEventListener('click',()=>{
-    console.log("nike");
-    // nikeBtn.style.backgroundColor='gray'
-    // nikeBtn.style.border='#eee'
-    // nikeBtn.style.color='#fff'
-    // chooseBrand.style.cssText= myStyles;
-    // chooseBrand.classList.add('border-gray-700')
-    // chooseBrand.style.color='#eee'
 getProductByFilter('nike');
-
+})
+adidasBtn.addEventListener('click',()=>{
+getProductByFilter('adidas');
+})
+pumaBtn.addEventListener('click',()=>{
+getProductByFilter('puma');
+})
+asicsBtn.addEventListener('click',()=>{
+getProductByFilter('asics');
+})
+reebokBtn.addEventListener('click',()=>{
+getProductByFilter('reebok');
+})
+newbalanceBtn.addEventListener('click',()=>{
+getProductByFilter('newbalance');
+})
+converseBtn.addEventListener('click',()=>{
+getProductByFilter('converse');
 })
 
+window.productPage = (e)=>{
+const id = e.dataset.id
+window.location = `http://127.0.0.1:5500/Landing/shoesownpage.html?id=${id}`
+}
 
+cardBtn.addEventListener('click',()=>{
+    window.location=`http://127.0.0.1:5500/Landing/card.html`
+})
+
+card.addEventListener('click',()=>{
+    window.location=`http://127.0.0.1:5500/Landing/card.html`
+})
+
+wishlist.addEventListener('click',()=>{
+    window.location=`http://127.0.0.1:5500/Landing/wishlist.html`
+})
+
+orderBtn.addEventListener('click',()=>{
+    window.location=`http://127.0.0.1:5500/Landing/orders.html`
+})

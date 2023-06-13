@@ -80,10 +80,10 @@
     ></script>
   </head>
   <body
-    class="w-screen h-screen font-nunito overflow-y-scroll"
+    class="w-screen h-screen font-nunito relative overflow-y-scroll"
   >
-    <header class="flex flex-col my-4 mx-4 overflow-x-hidden">
-      <div class="flex justify-between md:justify-center md:gap-72">
+    <header class=" flex flex-col my-3 mx-4 overflow-x-hidden">
+      <div class="flex justify-between md:justify-center md:gap-52">
        
 
         <div class="flex gap-3">
@@ -109,12 +109,12 @@
 
         <div class="flex items-center justify-center gap-2 md:gap-5">
           <div class="hidden gap-4 text-gray-600 md:flex text-lg">
-            <p class="hover:text-slate-900 cursor-pointer">Card</p>
+            <p id="card" class="hover:text-slate-900 cursor-pointer">Card</p>
             <p class="hover:text-slate-900 cursor-pointer" >Orders</p>
             <p class="hover:text-slate-900 cursor-pointer">Wallet</p>
              </div>
           <i class="text-2xl bi bi-bell"></i>
-          <i class="text-2xl bi bi-heart"></i>
+          <i id="wishlist" class="text-2xl bi bi-heart"></i>
         </div>
       </div>
 
@@ -129,9 +129,9 @@
     </header>
     <section
       id="brands"
-      class="md:flex md:justify-center md:gap-9 mx-1 text-slate-900 overflow-x-hidden"
+      class="md:flex md:justify-start md:gap-1 mx-1 text-slate-900 overflow-x-hidden md:overflow-x-scroll"
     >
-      <div class="flex gap-9 md:gap-16 mx-4 mb-4 overflow-hidden">
+      <div class="flex gap-9 md:gap-7 mx-4 mb-4 overflow-hidden">
         <div id="nike-logo" class="brand flex flex-col justify-center items-center">
           <div
             id="image"
@@ -170,7 +170,7 @@
           <h4 class="font-semibold">Asics</h4>
         </div>
       </div>
-      <div class="flex gap-7 md:gap-16 mx-4 mb-4 overflow-hidden">
+      <div class="flex gap-7 md:gap-7 mx-4 mb-4 overflow-hidden">
         <div id="reebok-logo"  class="brand flex flex-col justify-center items-center">
           <div
             id="image"
@@ -217,52 +217,54 @@
       </div>
     </section>
    
-    <main class="overflow-hidden m-4">
+    <main class="overflow-x-scroll m-4">
       <header class="flex justify-between mx-2 my-4">
         <h2 class="font-semibold text-xl text-slate-900">Most Popular</h2>
         <h4 id="see-all-btn" class="font-semibold text-slate-900 cursor-pointer">See All</h4>
       </header>
+
       <div
         id="list"
-        class="flex md:justify-center items-center overflow-x-scroll my-4 gap-2 md:gap-7 md:overflow-x-hidden"
+        class="flex justify-start items-center overflow-x-scroll my-3 gap-2"
       >
         <div id="all-btn"
-          class="flex justify-center items-center border-2 bg-gray-700 border-gray-700 rounded-full choose-brand"
+          class="flex justify-center items-center border-2 border-gray-700 rounded-full  text-gray-700 active-brand"
         >
-          <p class="px-4 py-1 font-semibold text-white">All</p>
+          <p class="px-4 py-1 font-semibold">All</p>
         </div>
         <div id="nike-btn"
-          class="flex justify-center items-center border-2 border-gray-700 rounded-full choose-brand"
+          class="flex justify-center items-center border-2  text-gray-700 border-gray-700 rounded-full"
         >
-          <p class="px-4 py-1 font-semibold text-gray-700">Nike</p>
+          <p class="px-4 py-1 font-semibold">Nike</p>
         </div>
-        <div
-          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        <div id="adidas-btn"
+          class="flex justify-center items-center border-2  text-gray-700 border-gray-700 rounded-full"
         >
-          <p class="px-4 py-1 font-semibold text-gray-700">Adidas</p>
+          <p class="px-4 py-1 font-semibold">Adidas</p>
         </div>
-        <div
-          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        <div id="puma-btn"
+          class="flex justify-center items-center border-2  text-gray-700 border-gray-700 rounded-full"
         >
-          <p class="px-4 py-1 font-semibold text-gray-700">Puma</p>
+          <p class="px-4 py-1 font-semibold">Puma</p>
         </div>
-        <div
-          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        <div id="asics-btn"
+          class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full"
         >
-          <p class="px-4 py-1 font-semibold text-gray-700">Asics</p>
+          <p class="px-4 py-1 font-semibold ">Asics</p>
         </div>
-        <div
-          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        <div id="reebok-btn"
+          class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full"
         >
-          <p class="px-4 py-1 font-semibold text-gray-700">Reebok</p>
+          <p class="px-4 py-1 font-semibold ">Reebok</p>
         </div>
-        <!-- <div class="flex justify-center items-center border border-2 border-gray-700 rounded-full">
-  <p class="px-4 py-1 font-semibold text-gray-700">NewBalance</p>
-</div> -->
-        <div
-          class="flex justify-center items-center border-2 border-gray-700 rounded-full"
+        <div id="newbalance-btn"
+         class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full">
+  <p class="px-4 py-1 font-semibold ">NewBalance</p>
+</div>
+        <div id="converse-btn"
+          class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full"
         >
-          <p class="px-4 py-1 font-semibold text-gray-700">Converse</p>
+          <p class="px-4 py-1 font-semibold ">Converse</p>
         </div>
       </div>
       <div id="card-container" class="w-full gap-3 flex flex-wrap">
@@ -270,19 +272,19 @@
     </main>
 
     <footer
-      class="flex items-end justify-center gap-7 mx-5 py-2 font-semibold text-sm text-slate-900 md:hidden"
+      class="flex items-end justify-center gap-7 mx-5 py-2 font-semibold text-sm text-slate-900 md:hidden bg-white fixed bottom-0 left-0 right-0"
     >
       <div class="flex flex-col justify-center items-center">
         <i class="bi bi-house-door text-2xl text-slate-900 hidden"></i>
         <i class="bi bi-house-door-fill text-2xl text-slate-900"></i>
         <h4>Home</h4>
       </div>
-      <div class="flex flex-col justify-center items-center">
+      <div id="card-btn" class="flex flex-col justify-center items-center">
         <i class="bi bi-bag text-2xl text-slate-900"></i>
         <i class="bi bi-bag-fill text-2xl text-slate-900 hidden"></i>
         <h4>Cart</h4>
       </div>
-      <div class="flex flex-col justify-center items-center">
+      <div id="orders-btn" class="flex flex-col justify-center items-center">
         <i class="bi bi-cart2 text-2xl text-slate-900"></i>
         <i class="bi bi-cart-fill text-2xl text-slate-900 hidden"></i>
         <h4>Orders</h4>

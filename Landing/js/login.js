@@ -16,11 +16,14 @@ const passwordNotCorrectMessage = document.getElementById('password-notcorrect-m
 //////////request to json//////////
 
 function userpermission(){
-    const request = fetch(' http://localhost:3000/users').then((response)=>{
+    const request = fetch('http://localhost:3000/users').then((response)=>{
         return response.json()
     }).then((users)=>{
         const myMember=users.filter((user)=>{
-            return emailInput.value==user.email && passwordInput.value==user.email
+            console.log(user);
+
+            return emailInput.value==user.email
+            //  && passwordInput.value==user.pas
         })
         console.log(myMember);
         if(myMember.length !== 0 ){
@@ -46,6 +49,7 @@ signInBtn.addEventListener('click',()=>{
      
      
     }
+    window.location=`http://127.0.0.1:5500/Landing/index.html`
    })
 
 //////////Email////////////

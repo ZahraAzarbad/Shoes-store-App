@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              nunito: ["nunito", "sans-serif"],
+              Lilita: ["Lilita One", "cursive"],
+            },
+            colors: {
+              darktext: "#152536",
+            },
+            keyframes: {
+              wide: {
+                0: { width: "0", borderRight: "5px solid #152536" },
+                100: { width: "67%", borderRight: "5px solid #152536" },
+              },
+
+              fadeOut: {
+                0: { opacity: "0" },
+                100: { opacity: "1" },
+              },
+              fadeIn: {
+                0: { opacity: "1" },
+                100: { opacity: "0" },
+              },
+              comeLeft: {
+                0: { transform: "translateX(-300px)", opacity: "0" },
+                100: { transform: "translateX(0)", opacity: "1" },
+              },
+              comeUp: {
+                0: { transform: "translateY(-300px) translateX(-50%)" },
+                100: { transform: "translateY(0) translateX(-50%)" },
+              },
+              backUp: {
+                0: { transform: "translateY(0) translateX(-50%)" },
+                100: { transform: "translateY(-300px) translateX(-50%)" },
+              },
+            },
+            animation: {
+              wide: "wide 1s linear",
+              fadeOut: "fadeOut .8s ease-in forwards",
+              fadeIn: "fadeIn .8s ease-in forwards",
+              comeLeft: "comeLeft 1s ease-in forwards",
+              comeUp: "comeUp .6s ease-in forwards",
+              backUp: "backUp 1s ease-in forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .btn-color {
+          background-color: #475569;
+        }
+        .icon-color {
+          color: #475569;
+        }
+        .slate-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+      }
+    </style>
+    <link
+      class="rounded-full"
+      rel="icon"
+      type="images/x-icon"
+      href="../src/img/logo-.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shoea</title>
+  </head>
+  <body class="w-screen h-screen overflow-hidden">
+    <header class="flex gap-5 m-3 mb-7">
+        <i id="back-arrow" class="bi bi-arrow-left text-xl "></i>
+        <h2 id="brand-name" class="font-semibold text-xl">My WishList</h2>
+    </header>
+
+    <main class="overflow-x-scroll">
+      <div
+      id="list"
+      class="flex justify-start items-center overflow-x-scroll my-4 px-3 gap-2 md:gap-3"
+    >
+      <div id="all-btn"
+        class="flex justify-center items-center border-2 border-gray-700 rounded-full  text-gray-700 active-brand"
+      >
+        <p class="px-4 py-1 font-semibold">All</p>
+      </div>
+      <div id="nike-btn"
+        class="flex justify-center items-center border-2  text-gray-700 border-gray-700 rounded-full"
+      >
+        <p class="px-4 py-1 font-semibold">Nike</p>
+      </div>
+      <div id="adidas-btn"
+        class="flex justify-center items-center border-2  text-gray-700 border-gray-700 rounded-full"
+      >
+        <p class="px-4 py-1 font-semibold">Adidas</p>
+      </div>
+      <div id="puma-btn"
+        class="flex justify-center items-center border-2  text-gray-700 border-gray-700 rounded-full"
+      >
+        <p class="px-4 py-1 font-semibold">Puma</p>
+      </div>
+      <div id="asics-btn"
+        class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full"
+      >
+        <p class="px-4 py-1 font-semibold ">Asics</p>
+      </div>
+      <div id="reebok-btn"
+        class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full"
+      >
+        <p class="px-4 py-1 font-semibold ">Reebok</p>
+      </div>
+      <div id="newbalance-btn"
+       class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full">
+<p class="px-4 py-1 font-semibold ">NewBalance</p>
+</div>
+      <div id="converse-btn"
+        class="flex justify-center items-center border-2 text-gray-700 border-gray-700 rounded-full"
+      >
+        <p class="px-4 py-1 font-semibold ">Converse</p>
+      </div>
+    </div>
+
+    <div id="card-container" class="w-full gap-3 flex flex-wrap mx-3 pb-4">
+  
+    </div>
+
+    </main>
+
+    <script src="./js/wishlist.js" type="module"></script>
+  </body>
+
+  </html>
