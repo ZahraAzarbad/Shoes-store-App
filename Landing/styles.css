@@ -18,3 +18,13 @@ top:0;
 transition: 1s;
 object-fit: cover;
 }
+
+.active-brand{
+  background-color: rgb(41, 39, 53) !important;
+  color: white !important;
+  border: 2px solid rgb(41, 39, 53) !important;
+}
+
+.active-like{
+ color:red;
+}
