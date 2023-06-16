@@ -1,4 +1,4 @@
-// const local = localStorage.setItem('isFirstTime','true');
+const local = localStorage.setItem('isFirstTime','true');
 
 const emailBox = document.getElementById('email-box');
 const emailInput = document.getElementById('email-input');
@@ -27,9 +27,9 @@ function userpermission(){
         })
         console.log(myMember);
         if(myMember.length !== 0 ){
-            // window.location='page url'
             localStorage.setItem('user',JSON.stringify(myMember))
             emailInvalidMessage.classList.add('hidden')
+            window.location=`http://127.0.0.1:5500/Landing/index.html`
         }else{
             emailInvalidMessage.classList.remove('hidden')
         }
@@ -45,11 +45,12 @@ signInBtn.addEventListener('click',()=>{
      
     if(emailInvalid() && passwordCorrection() ){
         userpermission()
+        
      }
      
      
     }
-    window.location=`http://127.0.0.1:5500/Landing/index.html`
+    
    })
 
 //////////Email////////////

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                fontFamily: {
+                  nunito: ["nunito", "sans-serif"],
+                  Lilita: ["Lilita One", "cursive"],
+                },
+                colors: {
+                  darktext: "#152536",
+                },
+                keyframes: {
+                  wide: {
+                    0: { width: "0", borderRight: "5px solid #152536" },
+                    100: { width: "67%", borderRight: "5px solid #152536" },
+                  },
+    
+                  fadeOut: {
+                    0: { opacity: "0" },
+                    100: { opacity: "1" },
+                  },
+                  fadeIn: {
+                    0: { opacity: "1" },
+                    100: { opacity: "0" },
+                  },
+                  comeLeft: {
+                    0: { transform: "translateX(-300px)", opacity: "0" },
+                    100: { transform: "translateX(0)", opacity: "1" },
+                  },
+                  comeUp: {
+                    0: { transform: "translateY(-300px) translateX(-50%)" },
+                    100: { transform: "translateY(0) translateX(-50%)" },
+                  },
+                  backUp: {
+                    0: { transform: "translateY(0) translateX(-50%)" },
+                    100: { transform: "translateY(-300px) translateX(-50%)" },
+                  },
+                },
+                animation: {
+                  wide: "wide 1s linear",
+                  fadeOut: "fadeOut .8s ease-in forwards",
+                  fadeIn: "fadeIn .8s ease-in forwards",
+                  comeLeft: "comeLeft 1s ease-in forwards",
+                  comeUp: "comeUp .6s ease-in forwards",
+                  backUp: "backUp 1s ease-in forwards",
+                },
+              },
+            },
+          };
+        </script>
+        <style type="text/tailwindcss">
+          @layer utilities {
+            .btn-color {
+              background-color: #475569;
+            }
+            .icon-color {
+              color: #475569;
+            }
+            .slate-900 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    }
+          }
+        </style>
+        <link
+          class="rounded-full"
+          rel="icon"
+          type="images/x-icon"
+          href="../src/img/logo-.png"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Shoea</title>
+      </head>
+      <body class="w-screen h-screen px-3 flex flex-col gap-5 bg-slate-50 relative">
+        <header class="flex gap-3 w-full items-center justify-start py-3">
+          <span id="backbtn" class="text-2xl md:text-3xl text-dark-txt">
+            <i class="bi bi-arrow-left"></i>
+          </span>
+    
+          <p class="text-xl md:text-2xl text-dark-txt font-semibold">
+            Shipping Address
+          </p>
+        </header>
+    
+        <section class="flex flex-col gap-3">
+          <div class="flex flex-col gap-5 shadow-lg md:min-w-[500px] md:mx-auto shadow-gray-200">
+    
+            <div class="bg-white rounded-2xl py-3 px-5 flex gap-3 items-center choosshipping">
+              <div class="p-2 bg-gray-300 w-fit rounded-full">
+                <span
+                  class="bg-black text-lg text-white rounded-full w-9 h-9 flex items-center justify-center"
+                >
+                <i class="bi bi-box-seam-fill"></i>
+                </span>
+              </div>
+              <div class="flex-1 flex flex-col gap-1">
+                <p class="font-bold text-dark-txt text-lg title">Economy</p>
+                <p class="text-sm text-gray-500 line-clamp-1 text-ellipsis way">
+                  Estimated,Arrival,Dec 20-23
+                </p>
+              </div>
+              <p class="text-dark-txt font-semibold">$<span class="shippingPrice">10</span></p>
+    
+              <input
+                class="w-5 h-5 accent-black"
+                name="shipping-radio"
+                type="radio"
+              />
+            </div>
+            <div class="bg-white rounded-2xl py-3 px-5 flex gap-3 items-center choosshipping">
+              <div class="p-2 bg-gray-300 w-fit rounded-full">
+                <span
+                  class="bg-black text-lg text-white rounded-full w-9 h-9 flex items-center justify-center"
+                >
+                <i class="bi bi-box-seam-fill"></i>
+                </span>
+              </div>
+              <div class="flex-1 flex flex-col gap-1">
+                <p class="font-bold text-dark-txt text-lg title">Reqular</p>
+                <p class="text-sm text-gray-500 line-clamp-1 text-ellipsis way">
+                  Estimated,Arrival,Dec 20-22
+                </p>
+              </div>
+              <p class="text-dark-txt font-semibold">$ <span class="shippingPrice">15</span></p>
+    
+              <input
+                class="w-5 h-5 accent-black"
+                name="shipping-radio"
+                type="radio"
+              />
+            </div>
+            <div class="bg-white rounded-2xl py-3 px-5 flex gap-3 items-center choosshipping">
+              <div class="p-2 bg-gray-300 w-fit rounded-full">
+                <span
+                  class="bg-black text-lg text-white rounded-full w-9 h-9 flex items-center justify-center"
+                >
+                <i class="bi bi-bus-front-fill"></i>
+                </span>
+              </div>
+              <div class="flex-1 flex flex-col gap-1">
+                <p class="font-bold text-dark-txt text-lg title">Cargo</p>
+                <p class="text-sm text-gray-500 line-clamp-1 text-ellipsis way">
+                  Estimated,Arrival,Dec 19-20
+                </p>
+              </div>
+              <p class="text-dark-txt font-semibold">$ <span class="shippingPrice">20</span> </p>
+    
+              <input
+                class="w-5 h-5 accent-black"
+                name="shipping-radio"
+                type="radio"
+              />
+            </div>
+            <div class="bg-white rounded-2xl py-3 px-5 flex gap-3 items-center choosshipping">
+              <div class="p-2 bg-gray-300 w-fit rounded-full">
+                <span
+                  class="bg-black text-lg text-white rounded-full w-9 h-9 flex items-center justify-center"
+                >
+                <i class="bi bi-truck"></i>
+                </span>
+              </div>
+              <div class="flex-1 flex flex-col gap-1">
+                <p class="font-bold text-dark-txt text-lg title">Express</p>
+                <p class="text-sm text-gray-500 line-clamp-1 text-ellipsis way">
+                  Estimated,Arrival,Dec 18-19
+                </p>
+              </div>
+              <p class="text-dark-txt font-semibold">$ <span class="shippingPrice">30</span> </p>
+    
+              <input
+                class="w-5 h-5 accent-black"
+                name="shipping-radio"
+                type="radio"
+              />
+            </div>
+    
+          
+            
+          </div>
+    
+         
+    
+        </section>
+    
+    
+    
+    
+        <section
+          class="border-t rounded-t-3xl md:justify-center fixed bottom-0 flex left-0 right-0 px-3 py-6 bg-white">
+          <button
+          id="applyBtn"
+            class="bg-black md:max-w-[400px] text-white rounded-full py-3 w-full flex items-center justify-center"
+          >
+            <p>Apply</p>
+          </button>
+        </section>
+    
+        <script type="module" src="./js/chooseShipping.js"></script>
+      </body>
+</html>

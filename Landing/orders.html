@@ -1,12 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                fontFamily: {
+                  nunito: ["nunito", "sans-serif"],
+                  Lilita: ["Lilita One", "cursive"],
+                },
+                colors: {
+                  darktext: "#152536",
+                },
+                keyframes: {
+                  wide: {
+                    0: { width: "0", borderRight: "5px solid #152536" },
+                    100: { width: "67%", borderRight: "5px solid #152536" },
+                  },
+    
+                  fadeOut: {
+                    0: { opacity: "0" },
+                    100: { opacity: "1" },
+                  },
+                  fadeIn: {
+                    0: { opacity: "1" },
+                    100: { opacity: "0" },
+                  },
+                  comeLeft: {
+                    0: { transform: "translateX(-300px)", opacity: "0" },
+                    100: { transform: "translateX(0)", opacity: "1" },
+                  },
+                  comeUp: {
+                    0: { transform: "translateY(-300px) translateX(-50%)" },
+                    100: { transform: "translateY(0) translateX(-50%)" },
+                  },
+                  backUp: {
+                    0: { transform: "translateY(0) translateX(-50%)" },
+                    100: { transform: "translateY(-300px) translateX(-50%)" },
+                  },
+                },
+                animation: {
+                  wide: "wide 1s linear",
+                  fadeOut: "fadeOut .8s ease-in forwards",
+                  fadeIn: "fadeIn .8s ease-in forwards",
+                  comeLeft: "comeLeft 1s ease-in forwards",
+                  comeUp: "comeUp .6s ease-in forwards",
+                  backUp: "backUp 1s ease-in forwards",
+                },
+              },
+            },
+          };
+        </script>
+        <style type="text/tailwindcss">
+          @layer utilities {
+            .btn-color {
+              background-color: #475569;
+            }
+            .icon-color {
+              color: #475569;
+            }
+            .slate-900 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    }
+          }
+        </style>
+        <link
+          class="rounded-full"
+          rel="icon"
+          type="images/x-icon"
+          href="../src/img/logo-.png"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Shoea</title>
+      </head>
+<body class="w-screen h-screen">
+
+  <header class="w-full flex justify-between items-center px-5 py-4">
+    <div class="flex justify-center items-center gap-3">
+        <img class="w-5 h-5" src="../src/img/logo (2).png" alt="shoea logo">
+    <h2 id="brand-name" class="font-semibold text-xl">My Orders</h2>
+    </div>
+    <div class="flex justify-center items-center gap-2">
+      <i class="bi bi-search text-xl"></i>
+      <i class="bi bi-three-dots px-1 border border-slate-700 text-slate-700 rounded-full"></i>
+    </div>
+   
+    
+</header> 
+
+<section class="w-full flex justify-between items-center">
+
+  <div class="w-full flex justify-center ml-2 items-end border-b-2 border-slate-200 text-slate-400 py-3 active-order">
+    <h1>Active</h1>
+  </div>
+
+  <div class="w-full flex justify-center  mr-2 items-end text-slate-400 border-b-2 border-slate-200 py-3">
+    <h1>Complete</h1>
+  </div>
+
+</section>
+
+<div id="not-found" class="hidden w-full h-full flex flex-col justify-start items-center px-10 py-10 gap-3">
+  <img src="../src/img/notfound.PNG" alt="clipboard">
+    <h1 class="text-xl font-extrabold">You don't have an order yet</h1>
+    <p class="flex text-center justify-center items-center text-lg"> You don't have an active orders at this time </p>
+  </div>
+
+
+
+  
+  <footer
+  class="w-full flex fixed bottom-0 right-0 left-0 bg-white items-end justify-center gap-7 py-2 font-semibold text-sm text-slate-900 md:hidden"
+>
+  <div id="home" class="flex flex-col justify-center items-center">
+    <i class="bi bi-house-door text-2xl text-slate-900"></i>
+    <i class="bi bi-house-door-fill text-2xl text-slate-900 hidden"></i>
+    <h4>Home</h4>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <i class="bi bi-bag text-2xl text-slate-900"></i>
+    <i class="bi bi-bag-fill text-2xl text-slate-900 hidden"></i>
+    <h4>Cart</h4>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <i class="bi bi-cart2 text-2xl text-slate-900 hidden"></i>
+    <i class="bi bi-cart-fill text-2xl text-slate-900"></i>
+    <h4>Orders</h4>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <i class="bi bi-wallet2 text-2xl text-slate-900"></i>
+    <i class="bi bi-wallet-fill text-2xl text-slate-900 hidden"></i>
+    <h4>Wallet</h4>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <i class="bi bi-person text-2xl text-slate-900"></i>
+    <i class="bi bi-person-fill text-2xl text-slate-900 hidden"></i>
+    <h4>Profile</h4>
+  </div>
+</footer>
+<script src="./js/orderPage.js" type="module"></script>
 </body>
 </html>
