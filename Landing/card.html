@@ -93,13 +93,73 @@
  
    
     <main class="w-full mt-3 px-2">
-      <div id="card-container" class="w-full gap-3  flex flex-wrap rounded-xl px-3 py-2 bg-white overflow-y-scroll pb-20">
+      <div id="card-container" class="w-full gap-3 flex flex-wrap rounded-xl px-3 py-2 bg-white overflow-y-scroll pb-20">
       </div>
     </main>
 
-    <footer
-      class="w-full flex fixed bottom-0 right-0 left-0 bg-white items-end justify-center gap-7 py-2 font-semibold text-sm text-slate-900 md:hidden"
+    <section id="remove-modal" class="remove-cart hidden">
+      <div id="modal-bg" class="fixed bottom-0 right-0 left-0 inset-0 bg-slate-900 opacity-40 "></div>
+      <div class="bg-white px-5 flex flex-col md:w-1/2 h-3/5 rounded-t-[50px] md:rounded-[50px] z-20">
+      <p class="text-center py-5 text-lg font-semibold text-dark-txt">Remove From Cart ?</p>
+      <div id="remove-card-container" class="flex flex-1 items-center justify-center border-y border-gray-200  py-3">
+        <div class="card h-[150px]">
+          <div class="bg-gray-100 rounded-2xl p-3 ">
+            <img class="w-full h-full object-contain" src="../src/img/Rectangle10.png">
+          </div>
+          <div class="flex-1 flex flex-col gap-1 justify-between pb-3">
+            <div class="flex justify-between items-center text-lg">
+              <p class="text-dark-txtfont-semibold text-ellipsis line-clamp-1 ">Air Jordan 3 Retro Air Jordan 3 Retro</p>
+            </div>
+            <div class="flex gap-2 text-sm text-gray-500 items-center">
+              <span class="bg-slate-800 w-4 h-4 md:w-6 md:h-6 rounded-full"></span>
+              <p>black</p>
+              <span class="h-5 w-[1px] bg-gray-300"></span>
+              <p>Size = <span>43</span></p>
+            </div>
+            <div class="flex"></div>
+            <div class="flex items-center justify-between text-dark-txt">
+              <p class="text-lg md:text-xl font-semibold">$<span>105.00</span></p>
+              <div class="bg-gray-200 flex items-center gap-3 rounded-full px-3 py-1 text-sm md:text-base">
+                <span class="text-slate-900"><i class="bi bi-dash"></i></span>
+                <span>2</span>
+                <span class="text-slate-800"><i class="bi bi-plus"></i></span>
+              </div>
+            </div>
+          </div>
+       </div>
+
+      </div>
+
+      <div class="flex justify-between gap-5 items-center min-h-[100px]">
+        <button id="cancel-btn" class="rounded-full bg-gray-300 flex-1 py-3">
+          Cancel
+        </button>
+        <button id="remove-card-btn" class="rounded-full bg-slate-950 text-white flex-1 py-3 shadow-lg shadow-gray-400">
+          Yes,Remove
+        </button>
+       
+
+      </div>
+      </div>
+    </section>
+
+    <footer id="footer"
+      class="w-full fixed bottom-0 right-0 left-0 bg-white   font-semibold text-sm text-slate-900 md:flex md:justify-between md:items-center rounded-t-3xl"
     >
+
+    <div class="w-full flex justify-center items-center mt-3 gap-9 py-3">
+      <div class="flex flex-col justify-center items-center">
+        <p class="text-gray-500">Total price</p>
+        <p class="text-xl font-bold">$ <span id="totalprice">240.00</span></p>
+      </div>
+      <button id="add-to-card" class="flex justify-center items-center gap-3 rounded-full bg-black text-white font-semibold px-9 py-3 shadow-xl">
+        <i class="bi bi-basket-fill "></i>
+      <p>Checkout <i class="bi bi-arrow-right"></i></p>
+    </button>
+    </div>
+
+
+    <div class="w-full flex justify-center items-center gap-7 py-2">
       <div id="home" class="flex flex-col justify-center items-center">
         <i class="bi bi-house-door text-2xl text-slate-900"></i>
         <i class="bi bi-house-door-fill text-2xl text-slate-900 hidden"></i>
@@ -125,7 +185,16 @@
         <i class="bi bi-person-fill text-2xl text-slate-900 hidden"></i>
         <h4>Profile</h4>
       </div>
+    </div>
+
+   
+    
+      
     </footer>
+
+
+
+   
 
     <script type="module" src="./js/card.js"></script>
   </body>

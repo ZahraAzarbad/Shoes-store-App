@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                fontFamily: {
+                  nunito: ["nunito", "sans-serif"],
+                  Lilita: ["Lilita One", "cursive"],
+                },
+                colors: {
+                  darktext: "#152536",
+                },
+                keyframes: {
+                  wide: {
+                    0: { width: "0", borderRight: "5px solid #152536" },
+                    100: { width: "67%", borderRight: "5px solid #152536" },
+                  },
+    
+                  fadeOut: {
+                    0: { opacity: "0" },
+                    100: { opacity: "1" },
+                  },
+                  fadeIn: {
+                    0: { opacity: "1" },
+                    100: { opacity: "0" },
+                  },
+                  comeLeft: {
+                    0: { transform: "translateX(-300px)", opacity: "0" },
+                    100: { transform: "translateX(0)", opacity: "1" },
+                  },
+                  comeUp: {
+                    0: { transform: "translateY(-300px) translateX(-50%)" },
+                    100: { transform: "translateY(0) translateX(-50%)" },
+                  },
+                  backUp: {
+                    0: { transform: "translateY(0) translateX(-50%)" },
+                    100: { transform: "translateY(-300px) translateX(-50%)" },
+                  },
+                },
+                animation: {
+                  wide: "wide 1s linear",
+                  fadeOut: "fadeOut .8s ease-in forwards",
+                  fadeIn: "fadeIn .8s ease-in forwards",
+                  comeLeft: "comeLeft 1s ease-in forwards",
+                  comeUp: "comeUp .6s ease-in forwards",
+                  backUp: "backUp 1s ease-in forwards",
+                },
+              },
+            },
+          };
+        </script>
+        <style type="text/tailwindcss">
+          @layer utilities {
+            .btn-color {
+              background-color: #475569;
+            }
+            .icon-color {
+              color: #475569;
+            }
+            .slate-900 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    }
+          }
+        </style>
+        <link
+          class="rounded-full"
+          rel="icon"
+          type="images/x-icon"
+          href="../src/img/logo-.png"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Shoea</title>
+      </head>
+      <body  class="w-screen h-screen px-3 flex flex-col gap-5 bg-slate-50 relative">
+
+        <header  class="flex gap-3 w-full items-center justify-start py-3">
+          <span id="backbtn" class="text-2xl md:text-3xl text-dark-txt">
+            <i class="bi bi-arrow-left"></i>
+          </span>
+      
+          <p class="text-xl md:text-2xl text-dark-txt font-semibold">Checkout</p>
+      
+          <div class="flex-1"></div>
+          <span class="text-gray-600 text-sm md:text-lg w-6 h-6 md:w-8 md:h-8 border border-slate-700 rounded-full text-center cursor-pointer">
+            <i class="bi bi-three-dots"></i>
+          </span>
+      
+        </header>
+      
+        <section class="flex flex-col gap-4">
+          <p class="text-lg text-dark-txt font-semibold">Shipping Address</p>
+          <div class="flex flex-col gap-2 shadow-lg md:min-w-[800px] md:mx-auto  shadow-gray-200">
+              <div id="select-shippingAddress" class="bg-white rounded-2xl py-3 px-5 flex gap-3 items-center">
+                  <div class="p-2 bg-gray-300 w-fit rounded-full">
+                    <span class="bg-slate-900 text-lg text-white rounded-full w-9 h-9 flex items-center justify-center">
+                      <i class="bi bi-geo-alt-fill mt-1"></i>
+                    </span>
+                  </div>
+                  <div class="flex-1 flex flex-col gap-1">
+                    <p id="addressName" class="font-bold text-dark-txt text-lg">Home</p>
+                    <p id="currentAddress" class="text-sm text-gray-500 line-clamp-1 text-ellipsis">tonekabon,mazandaran,123</p>
+                  </div>
+                  <span  class="text-slate-900 text-xl">
+                    <i class="bi bi-pen-fill"></i>
+                  </span>
+              </div>
+          </div>
+        </section>
+      
+        <section class="border-y border-gray-300 flex flex-col gap-4 py-5">
+          <p class="text-lg text-dark-txt font-semibold">Order list</p>
+          <div id="orderListwrapper" class="grid gap-4 grid-cols-mobile-responsive grid-rows-mobile-responsive sm:grid-rows-responsive sm:grid-cols-responsive overflow-y-scrol">
+      
+      
+          </div>
+        </section>
+      
+        <section class="flex flex-col gap-4 py-5">
+          <p class="text-lg text-dark-txt font-semibold">Choose Shipping</p>
+          <div id="shipping-method-wrapper" class="md:min-w-[800px] md:mx-auto ">
+              
+          </div>
+        </section>
+      
+      
+        <section class="border-t border-gray-300 flex flex-col gap-4 py-5">
+          <p class="text-lg text-dark-txt font-semibold">Promo Code</p>
+          <div class="flex gap-3 items-center md:min-w-[800px] md:mx-auto  flex-wrap relative">
+              <input id="promoInput" type="text" class="bg-gray-100 flex-1 rounded-lg outline-none border-0 py-4 px-2" placeholder="Enter Promo Code">
+              <div id="promoCardsWrapper" class="flex flex-wrap gap-1">
+              
+              
+              </div>
+              <span id="addPromoBtn" class="text-2xl text-white bg-black p-3 px-4 rounded-full flex items-center">
+                <i class="bi bi-plus"></i>
+              </span>
+          </div>
+        </section>
+      
+      
+        <section class="bg-white rounded-lg shadow-lg md:min-w-[500px] md:mx-auto px-5 py-4 flex flex-col gap-3 shadow-slate-100">
+            <div class="text-gray-600 items-center flex">
+              <p class="text-sm flex-1">Amount</p>
+              <p id="AmountPrice" class="text-lg">$584.4</p>
+            </div>
+            <div class="text-gray-600 items-center flex">
+              <p class="text-sm flex-1">Shipping</p>
+              <p  class="text-lg"><span id="shippingPrice"></span> </p>
+            </div>
+            <div class="text-gray-600 items-center flex">
+              <p class="text-sm flex-1">Promo</p>
+              <p  class="text-lg">- <span id="promoOffPrice"></span> </p>
+            </div>
+            <hr>
+            <div class="text-gray-600 items-center flex">
+              <p class="text-sm flex-1">Total</p>
+              <p id="shippingTotalPrice" class="text-lg">$563.90</p>
+            </div>
+        </section>
+      
+      
+        
+        <section class="border-t rounded-t-3xl sticky bottom-0 flex  items-center justify-center left-0 right-0 text-white bg-white py-5 px-8">
+          <button id="paymentBtn" class="bg-black md:max-w-[400px] rounded-full py-3 w-full flex items-center justify-center gap-3">
+            <p class=>continue to payment</p>
+            <span class="text-white text-lg"><i class="bi bi-arrow-right-short"></i></span>
+          </button>
+        </section>
+      
+      
+      
+        <section id="addPromoModal" class="remove-cart hidden">
+          <div id="modal-bg" class="absolute inset-0 bg-slate-900 opacity-40 "></div>
+          <div class="bg-white px-5 flex flex-col md:w-1/2 md:h-3/5 rounded-t-[50px] md:rounded-[50px] z-20">
+          <p class="text-center py-5 text-lg font-semibold text-dark-txt">Enter Your Promo Code</p>
+          
+          <input id="modalpromoInput" type="text" class="bg-gray-100  rounded-lg outline-none border-0 py-4 px-2" placeholder="Enter Promo Code">
+      
+          <div class="flex justify-between gap-5 items-center min-h-[100px]">
+            <button id="cancel-btn" class="rounded-full bg-gray-300 flex-1 py-3">
+              Cancel
+            </button>
+            <button id="addPromoModalBtn" class="rounded-full bg-slate-950 text-white flex-1 py-3 shadow-lg shadow-gray-400">
+              Add Promo
+            </button>
+           
+      
+          </div>
+          </div>
+        </section>
+      
+      
+      
+      
+       
+        <script type="module" src="./js/checkout.js"></script>
+      </body>
+</html>

@@ -19,6 +19,8 @@ function start() {
     console.log(userId);
     request.getById('users', userId).then(result => {
       productUser = result[0];
+      userWishlist = productUser.wishlists;
+      console.log(productUser);
       getWishlists(productUser.wishlists)
     })
   }
@@ -43,7 +45,7 @@ function generateCard(product){
   >
     <div class="bg-slate-100 w-36 h-36 rounded-2xl relative">
       <img class="p-3" src="${product.images[0]}" />
-      <div onclick="handelWishlistLikeBtn(this)" class="absolute top-1 right-1 bg-slate-300 rounded-full px-2 py-1">
+      <div class="absolute top-1 right-1 bg-slate-300 rounded-full px-2 py-1">
         <i id="deactive-like" class="bi bi-heart text-slate-900 text-lg hidden"></i>
         <i id="active-like" class="bi bi-heart-fill text-slate-900 text-lg"></i>
       </div>
@@ -80,7 +82,13 @@ function getProducts(){
         return response.json()
 
     }).then((data)=>{
-insertData(data)
+      let filteredList=data.filter((product)=>{
+        let index= userWishlist.findIndex((order)=>{
+        return order.id===product.id
+        })
+        return index != -1
+            });
+insertData(filteredList)
     })
 }
 getProducts()
@@ -90,8 +98,14 @@ function getProductByFilter(brand){
       return response.json()
 
   }).then((data)=>{
-insertData(data)
-  }) 
+    let filteredList=data.filter((product)=>{
+let index= userWishlist.findIndex((order)=>{
+return order.id===product.id
+})
+return index != -1
+    });
+insertData(filteredList);
+console.log(data);  }) 
 }
 
 backBtn.addEventListener('click',()=>{
@@ -100,7 +114,7 @@ backBtn.addEventListener('click',()=>{
 
 window.productClick = (e) => {
     // console.log(e);
-    page.go('product',{key:'id',value:e.dataset?.id})
+    page.go('shoesownpage',{key:'id',value:e.dataset?.id})
   }
 
 changeBrandsColor()
@@ -150,22 +164,12 @@ getProductByFilter('converse');
 
 
 function getWishlists(IDList) {
+  console.log(IDList);
     request.getQueues("products", IDList).then(result => {
-      // console.log(result);
+      console.log(result);
       userWishlist = result;
       insertData(result);
     })
-  }
-
-  window.handelWishlistLikeBtn = (e) => {
-    let cardId = e.closest('.product').dataset?.id;
-    productUser.wishlists.forEach((id,index) => {
-      if (cardId == id) {
-        productUser.wishlists.splice(index, 1);
-        updateUser();
-      }
-    })
-  
   }
 
   function updateUser() {

@@ -2,15 +2,22 @@ import {Product} from "./product.js";
 import { Request } from "./request.js";
 import { Order } from "./order.js";
 import { Catch } from "./catch.js";
+import { Page } from "./page.js";
 
-
+// const url = new Url();
+const page = new Page();
 const request = new Request('http://localhost:3000/');
-let productObj = [];
-
 const storage = new Catch()
 
 
-let currentUser;
+
+let productObj = [];
+
+
+
+
+
+
 
 const url = new URLSearchParams(window.location.search);
 let entries = url.entries();
@@ -18,6 +25,9 @@ const productId = Object.fromEntries(entries)['id'];
 
 
 const slides= document.querySelectorAll(".slide");
+const slidesWrapper =document.getElementById('slides-wrapper')
+const slider = document.getElementById('product-slider');
+const pagination = document.querySelector('.pagination');
 // const nextBtn= document.querySelectorAll(".next-btn");
 // const preBtn= document.getElementById("pre-btn");
 const viewMore= document.getElementById("view-more");
@@ -32,11 +42,143 @@ const color= document.getElementById("color");
 const addToCard= document.getElementById("add-to-card");
 const backBtn= document.getElementById("back-btn");
 
+// let slidePosition = 0;
+let currentUser;
+// let sliderWidth = slider.getClientRects()[0].width
+// touchHandel()
+// mouseHandel()
 
 
 backBtn.addEventListener('click',()=>{
     window.location=`http://127.0.0.1:5500/Landing/index.html`
 })
+
+
+function insertproduct(product){
+  shoesName.textContent=product.title;
+  soldNum.textContent=product.soldNumbers;
+  review.textContent=product.viewers;
+  quantity.textContent=1;
+  insertColor(product.colors);
+  insertSize(product.sizes);
+  // generateSliderImage(product.images);
+}
+///////////////////////////////////////////////////////
+
+
+// function touchHandel() {
+//   let xUp, xDown;
+  
+//   slider.addEventListener('touchstart', function (e) {
+
+//     let touch = e?.touches[0] || e?.changedTouches[0];
+//     xUp = touch.pageX;
+    
+
+//   });
+
+//   slider.addEventListener('touchend', (e) => {
+
+//     let touch = e?.touches[0] || e?.changedTouches[0];
+//     xDown = touch.pageX;
+   
+//     let result = xDown - xUp;
+    
+    
+//     if (result < sliderWidth / 2) {
+//       slidePosition++;
+//       slideImage()
+//     } else {
+//       slidePosition--;
+//       slideImage()
+//     }
+
+//   });
+// }
+
+// function mouseHandel() {
+//   let xUp, xDown;
+//   slider.addEventListener('mousedown', function (e) {
+//     xDown = e.offsetX;
+
+//   });
+//   slider.addEventListener('mouseup', (e) => {
+//     xUp = e.offsetX;
+
+//     let result = xDown - xUp;
+//     console.log(result,sliderWidth);
+    
+//     if (result > sliderWidth/2) {
+//       slidePosition++;
+//       slideImage()
+//     } else {
+//       slidePosition--;
+//       slideImage()
+//     }
+
+//   });
+// }
+
+// function slideImage() {
+//   let slides=document.querySelectorAll('.product-slide')
+//   if (slidePosition >= slides.length) {
+//     slidePosition = slides.length - 1;
+//     return
+//   };
+//   if (slidePosition <0) {
+//     slidePosition = 0;
+//     return
+//   };
+//   handelPagination(slidePosition);
+//   slides.forEach((slide) => {
+    
+//     slide.style.transform = `translateX(-${(slidePosition) * 100}%) translateY(-50%)`;
+//   });
+// }
+
+// function initPagiantion(count) {
+//   for (let i = 0; i < count;i++) {
+//    pagination.innerHTML +=`<span></span>`
+//   }
+// }
+
+// function handelPagination(index) {
+//   let spans = pagination.querySelectorAll('span');
+//   spans.forEach(span => {
+//     span.classList.remove('active-page');
+//   })
+
+//   spans.forEach((span,idx) => {
+//     if (idx == index) {
+//       span.classList.add('active-page');
+//     }
+//   })
+// }
+
+// function generateSliderImage(images) {
+//   initPagiantion(images.length);
+//   slidesWrapper.innerHTML =''
+//   images.forEach(image => {
+//     slidesWrapper.innerHTML += imgMaker(image)
+//   });
+
+//   let items = slidesWrapper.children;
+
+//   Array.from(items).forEach((slide, index) => {
+//     slide.style.left = `${(index) * 100}%`
+//   });
+
+//   handelPagination(slidePosition);
+// }
+
+// function imgMaker(address) {
+//   return `          <div class="product-slide">
+//   <div  class="w-[250px] h-[250px]">
+//     <img draggable="false"  class="w-full h-full " src="${address}">
+//   </div>
+// </div>`
+// }
+
 
 
 ///////////////////////////////////////////////////////
@@ -113,14 +255,7 @@ insertproduct(data)
 }
 getProducts()
 
-function insertproduct(product){
-    shoesName.textContent=product.title;
-    soldNum.textContent=product.soldNumbers;
-    review.textContent=product.viewers;
-    quantity.textContent=1;
-    insertColor(product.colors);
-    insertSize(product.sizes);
-}
+
 
 
 ////////////////////////////////////////////////
@@ -269,20 +404,11 @@ function updateUser() {
     request.getById('products', id).then(result => {
       console.log(result[0]);
       productObj = new Product(result[0])
-      insertData(productObj);
+      insertproduct(productObj);
      
     });
 
-    function insertData(product) {
-      shoesName.textContent = product.title;
-      soldNum.textContent = product.soldNumbers;
-      productRate.textContent = product.rate;
-      productReviews.textContent = product.viewers;
-      productDescription.textContent = product.description;
-      productTotalPrice.textContent = product.price;
-      insertColor(product.colors)
-      insertSize(product.sizes)
-    }
+
   
     let userId = storage.getUser().id;
     console.log(userId);
@@ -300,5 +426,3 @@ function updateUser() {
   
   }
 
-
-// window.اسم فانکشن ارو فانکشن

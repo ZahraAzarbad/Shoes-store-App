@@ -83,79 +83,59 @@
         <link rel="stylesheet" href="styles.css" />
         <title>Shoea</title>
       </head>
-<body class="w-screen h-screen overflow-x-hidden flex flex-col">
-
-<div class="container w-full h-full overflow-x-hidden">
-    <header class="w-full flex justify-center items-center gap-5 p-3 mt-5 hover:border-2 rounded-full">
-        <i class="bi bi-search"></i>
-        <input class="flex-1 outline-0" type="text" placeholder="Search">
-        <i class="bi bi-sliders"></i>
-    </header>
-
-    <section class="w-full h-full flex flex-col items-start">
-        <div class="w-full flex justify-between items-center px-5 py-4 border-b-2 border-slate-200 font-semibold ">
-            <h4>Recent</h4>
-            <h4>Clear All</h4>
-        </div>
-<div class="w-full">
-  <div class="w-full py-3 px-4 flex justify-between items-center">
-    <p class="text-slate-500">Running Jordan</p> 
-    <div class="border border-slate-700 rounded-3xl"><i class="bi bi-x-lg p-1"></i></div>
- </div>
-  <div class="w-full py-3 px-4 flex justify-between items-center">
-    <p class="text-slate-500">Running Jordan</p> 
-    <div class="border border-slate-700 rounded-3xl"><i class="bi bi-x-lg p-1"></i></div>
- </div>
-</div>
-
-<div class="w-full flex justify-between px-3 py-2 font-bold ">
-  <p>Results for " <span>Nike</span>"</p>
-<p> <span>0</span> found</p>
-</div>
-        
-
-<div id="not-found" class=" hidden w-full h-full flex flex-col justify-start items-center px-10 py-10 gap-3">
-<img src="../src/img/notfound.PNG" alt="clipboard">
-  <h1 class="text-2xl font-extrabold">Not Found</h1>
-  <p class="flex text-center justify-center items-center text-lg">Sorry, the keyword you entered cannot be found, please check again or search with another keyword.  </p>
-</div>
-    </section>
-
-    <div
-    data-id=${product.id}
-    id="main-card" onclick="productClick(this)"
-    class="w-40 flex flex-col justify-center items-center"
-  >
-    <div class="bg-slate-100 w-36 h-36 rounded-2xl relative">
-      <img class="p-3" src="${product.images[0]}" />
-      <div class="absolute top-1 right-1 bg-slate-300 rounded-full px-2 py-1">
-        <i id="deactive-like" class="bi bi-heart text-slate-900 text-lg hidden"></i>
-        <i id="active-like" class="bi bi-heart-fill text-slate-900 text-lg"></i>
-      </div>
+      <body class="w-screen h-screen px-3 flex flex-col gap-5 bg-slate-50 relative">
+        <header class="flex gap-3 w-full items-center justify-start py-3">
+          <span id="backbtn" class="text-2xl md:text-3xl text-dark-txt">
+            <i class="bi bi-arrow-left"></i>
+          </span>
+    
+          <p class="text-xl md:text-2xl text-dark-txt font-semibold">
+            Enter Your Pin 
+          </p>
+        </header>
+    
+        <section class="flex flex-col gap-3">
+          <input id="pincodeInput" type="text" class="bg-gray-100  rounded-lg outline-none border-0 py-4 px-2" placeholder="Enter You Code">
+    
+        </section>
+    
+        <section id="pinModal" class="pinModal z-10 hidden">
+          <div id="modal-bg" class="absolute inset-0 bg-slate-900 opacity-40 "></div>
+    
+    
+          <div class="bg-white px-5 py-6 flex gap-4 flex-col rounded-[30px] z-20 ">
+            <div class="w-40 h-30 overflow-hidden self-center">
+              <img class="w-full h-full object-contain" src="../../assets/images/pin.png">
+            </div>
+          <p class="text-center  text-lg font-semibold text-dark-txt">Order Successful !</p>
+          <p class="text-gray-400 text-sm">You have successfuly made order</p>
+    
+          <button id="viewOrder" class="rounded-full bg-black text-white flex-1 py-2">
+            View Order
+          </button>
       
-    </div>
-    <div class="flex flex-col justify-center">
-      <h4 class="font-bold">${product.title}</h4>
-      <div class=" w-full flex justify-between items-center gap-3 ">
-        <div id="sold" class="h-5 w-20 flex gap-1 justify-center items-center bg-gray-300 rounded-md p-3 text-black">
-    <p id="sold-num">${product.soldNumbers}</p>
-    <span>|sold</span>
-        </div>
-        <div id="rate" class="flex justify-center items-center">
-          <i class="bi bi-star-half text-xl"></i>
-          <div class="flex gap-1">
-            <p>${product.rate}</p>
+          <button id="Erecipt-btn" class="rounded-full bg-gray-300 text-gray-500 flex-1 py-2">
+            View E-recipt
+          </button>
+    
+         
           </div>
-        </div>
-      </div>
-      <p class="font-semibold">${product.price}</p>
-    </div>
-  </div> 
+        </section>
     
-</div>
     
-
-
     
-</body>
+    
+    
+        <section
+          class="border-t rounded-t-3xl md:justify-center fixed bottom-0 flex left-0 right-0 px-3 py-6 bg-white z-0">
+          <button
+          id="payBtn"
+            class="bg-black md:max-w-[400px] text-white rounded-full py-3 w-full flex items-center justify-center"
+          >
+            <p>pay</p>
+          </button>
+        </section>
+    
+        <script type="module" src="./js/enterPin.js"></script>
+      </body>
 </html>

@@ -28,3 +28,8 @@ object-fit: cover;
 .active-like{
  color:red;
 }
+
+.active-order{
+  color: rgb(41, 39, 53) !important;
+  border-bottom: 2px solid rgb(41, 39, 53) !important;
+}

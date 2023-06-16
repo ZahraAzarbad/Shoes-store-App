@@ -1,7 +1,7 @@
 export class Page{
 
     constructor() {
-      this.basePage = 'http://127.0.0.1:5500/Landing/shoesownpage.html'
+      this.basePage = 'http://127.0.0.1:5500/Landing/'
     }
   
     go(page,query={},path='') {
