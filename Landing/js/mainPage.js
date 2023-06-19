@@ -13,9 +13,10 @@ const cardContainer= document.getElementById("card-container");
 const seeAllBtn= document.getElementById("see-all-btn");
 const brandsList= document.getElementById("list");
 const cardBtn= document.getElementById("card-btn");
-const orderBtn= document.getElementById("order-btn");
 const card= document.getElementById("card");
 const wishlist= document.getElementById("wishlist");
+const search= document.getElementById("search");
+const ordersBtn= document.getElementById("orders-btn");
 
 
 
@@ -181,7 +182,11 @@ card.addEventListener('click',()=>{
 wishlist.addEventListener('click',()=>{
     window.location=`http://127.0.0.1:5500/Landing/wishlist.html`
 })
-
-orderBtn.addEventListener('click',()=>{
+search.addEventListener('click',()=>{
+    window.location=`http://127.0.0.1:5500/Landing/search.html`
+})
+ordersBtn.addEventListener('click',()=>{
     window.location=`http://127.0.0.1:5500/Landing/orders.html`
 })
+
+

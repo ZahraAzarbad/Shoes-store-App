@@ -1,8 +1,8 @@
-import { Request } from "../services/request.js";
-import { Page } from "../utilities/page.js";
-import { Url } from "../utilities/url.js";
-import { Catch } from "../utilities/catch.js";
-import { Order } from "../model/order.js";
+import { Request } from "./request.js";
+import { Page } from "./page.js";
+import { Url } from "./url.js";
+import { Catch } from "./catch.js";
+import { Order } from "./order.js";
 
 const page = new Page();
 const url = new Url();
@@ -35,7 +35,7 @@ modalBg.addEventListener("click", () => {
   addressModal.classList.add('hidden')
 });
 backbtn.addEventListener("click", () => {
-  page.go("checkout");
+ window.location=`http://127.0.0.1:5500/Landing/checkout.html`
 });
 
 addNewAddressBtn.addEventListener("click", () => {
@@ -48,9 +48,9 @@ apply.addEventListener("click", () => {
   let address = selectedItem.querySelector('.current-address').textContent;
   name = `${name}`.toLowerCase();
   storage.set("address",{name ,address})
-  page.go("checkout");
-
+ window.location=`http://127.0.0.1:5500/Landing/checkout.html`
 })
+
 modalAddNewAddressBtn.addEventListener("click", () => {
   if (modaladdressInput.value != '' && modaladdressNameInput.value != '') {
     currentUser.addresses[modaladdressNameInput.value] = modaladdressInput.value;
@@ -97,14 +97,14 @@ function updateUser(user) {
   // console.log(user);
   request.update("users", user).then(result => {
     console.log(result);
-    insertAddress(user.addresses);
+    insertAddress(user.address);
   })
 }
 
 function getUserAddress(id) {
   let userAddresses ={}
   request.getById("users", id).then(user => {
-    userAddresses = user[0].addresses
+    userAddresses = user[0].address
     console.log(userAddresses);
     insertAddress(userAddresses)
   })

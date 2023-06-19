@@ -8,9 +8,6 @@ export class Page{
       window.location = `${this.basePage}${path == '' ? '' : path}${page}.html${!this.isObjEmpty(query)? `?${query.key}=${query.value}`:''}`;
     }
   
-  
-  
-  
     isObjEmpty (obj) {
     return Object.keys(obj).length === 0;
     }
