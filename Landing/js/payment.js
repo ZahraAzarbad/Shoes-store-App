@@ -1,7 +1,7 @@
-import { Request } from "../services/request.js";
-import { Page } from "../utilities/page.js";
-import { Catch } from "../utilities/catch.js";
-import { Order } from "../model/order.js";
+import { Request } from "./request.js";
+import { Page } from "./page.js";
+import { Catch } from "./catch.js";
+import { Order } from "./order.js";
 
 const page = new Page();
 const storage = new Catch()

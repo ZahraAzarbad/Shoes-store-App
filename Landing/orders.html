@@ -83,7 +83,124 @@
         <link rel="stylesheet" href="styles.css" />
         <title>Shoea</title>
       </head>
-<body class="w-screen h-screen">
+
+      <body class="w-screen h-screen px-3 flex flex-col gap-2 bg-slate-50 relative">
+        <header class="bg-slate-50 z-20 py-2 flex justify-between items-center gap-3 h-14 sticky top-0">
+            <div class="w-5 h-7 overflow-hidden ">
+              <img class="w-full h-full object-contain" src="../src/img/logo (2).png" alt="logo">
+            </div>
+            <p class="text-xl font-semibold text-dark-txt">My Orders</p>
+            <span class="flex-1"></span>
+            <!-- <div class="gap-5 hidden md:flex items-center text-gray-600 text-xl">
+              <p class="cursor-pointer hover:text-slate-900" >Home</p>
+              <p class="cursor-pointer hover:text-slate-900" >Carts</p>
+              <p class="cursor-pointer hover:text-slate-900" >Wallet</p>
+              <p class="cursor-pointer hover:text-slate-900" >Profile</p>
+            </div>-->
+            <span id="searchbtn" class="text-gray-600 text-xl cursor-pointer">
+              <i class="bi bi-search"></i>
+            </span>
+            <span class="text-gray-600 pt-1 flex items-center justify-center cursor-pointer border border-slate-800 rounded-full w-7 h-7">
+              <i class="bi bi-three-dots"></i>
+            </span>
+    
+        </header>
+    
+        <section class="flex relative border-b border-gray-400 py-2 text-center text-lg text-gray-400 font-semibold">
+          <p id="active-state" class="flex-1 active-order-state transition-all duration-200">
+            Active
+          </p>
+          <p id="complite-state" class="flex-1 transition-all duration-200">
+            Completed
+          </p>
+    
+          <span id="line" class="absolute -bottom-1 left-0 h-[4px] bg-slate-900 rounded-full w-1/2 transition-all duration-300"></span>
+        </section>
+    
+    
+        <section id="empty-state-part" class=" flex flex-1 flex-col items-center justify-center gap-2 hidden">
+          <div class="w-[200px] h-[200px]  overflow-hidden -translate-y-10 ">
+            <img class="w-full h-full object-cover" src="../src/img/notfound.PNG" alt="nothing here!" >
+          </div>
+    
+          <p class="text-dark-txt">You don't have an order</p>
+          <p class="text-gray-500 text-sm">you don't have an active orders at this time</p>
+      </section>
+    
+        <main id="orders-cards-wrapper" class=" grid gap-2 grid-cols-mobile-responsive grid-rows-mobile-responsive sm:grid-rows-responsive sm:grid-cols-responsive overflow-y-scrol pb-32 pt-2 ">
+         
+    
+    
+    
+    
+        </main>
+      
+    
+    
+        <footer
+      class="flex items-end justify-center gap-7 mx-5 py-2 font-semibold text-sm text-slate-900 md:hidden bg-white fixed bottom-0 left-0 right-0"
+    >
+      <div id="home-btn" class="flex flex-col justify-center items-center">
+        <i class="bi bi-house-door text-2xl text-slate-900"></i>
+        <i class="bi bi-house-door-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Home</h4>
+      </div>
+      <div id="card-btn" class="flex flex-col justify-center items-center">
+        <i class="bi bi-bag text-2xl text-slate-900"></i>
+        <i class="bi bi-bag-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Cart</h4>
+      </div>
+      <div id="orders-btn" class="flex flex-col justify-center items-center">
+        <i class="bi bi-cart2 text-2xl text-slate-900 hidden"></i>
+        <i class="bi bi-cart-fill text-2xl text-slate-900"></i>
+        <h4>Orders</h4>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-wallet2 text-2xl text-slate-900"></i>
+        <i class="bi bi-wallet-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Wallet</h4>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <i class="bi bi-person text-2xl text-slate-900"></i>
+        <i class="bi bi-person-fill text-2xl text-slate-900 hidden"></i>
+        <h4>Profile</h4>
+      </div>
+    </footer>
+     
+        <!-- <section class="navigation flex flex-1 justify-center gap-10 px-5 py-2 bg-white fixed left-0 right-0 bottom-0">
+          <span id="home-btn" class="text-dark-txt flex flex-col items-center text-2xl">
+           
+            <i class="bi bi-house  active-mode"></i>
+            <i class="bi bi-house-door-fill hidden"></i>
+            
+            <p class="text-sm">Home</p>
+          </span>
+          <span id="card-btn" class="text-dark-txt flex flex-col items-center text-2xl">
+            <i class="bi bi-bag  active-mode"></i>
+            <i class="bi bi-bag-fill hidden"></i>
+            <p class="text-sm">Card</p>
+          </span>
+          <span class="text-dark-txt flex flex-col items-center text-2xl">
+            <i class="bi bi-cart hidden active-mode"></i>
+            <i class="bi bi-cart-fill  "></i>
+            <p class="text-sm">Orders</p>
+          </span>
+          <span class="text-dark-txt flex flex-col items-center text-2xl">
+            <i class="bi bi-wallet2 active-mode"></i>
+            <i class="bi bi-wallet-fill hidden"></i>
+            <p class="text-sm">Wallet</p>
+          </span>
+          <span class="text-dark-txt flex flex-col items-center text-2xl">
+            <i class="bi bi-person active-mode"></i>
+            <i class="bi bi-person-fill hidden"></i>
+            <p class="text-sm">Profile</p>
+          </span>
+        </section> -->
+      
+    
+      <script type="module" src="./js/orderPage.js"></script>
+    </body>
+<!-- <body class="w-screen h-screen">
 
   <header class="w-full flex justify-between items-center px-5 py-4">
     <div class="flex justify-center items-center gap-3">
@@ -147,7 +264,8 @@
     <i class="bi bi-person-fill text-2xl text-slate-900 hidden"></i>
     <h4>Profile</h4>
   </div>
-</footer>
+</footer> 
+
 <script src="./js/orderPage.js" type="module"></script>
-</body>
+</body> -->
 </html>

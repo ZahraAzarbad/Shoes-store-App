@@ -83,21 +83,50 @@
         <link rel="stylesheet" href="styles.css" />
         <title>Shoea</title>
       </head>
-<body class="w-screen h-screen overflow-x-hidden flex flex-col">
+      <body class="w-screen h-screen relative py-4 px-3 overflow-x-hidden">
+        <header class="fixed top-3 left-3 right-3 md:max-w-[600px] md:mx-auto z-20">
+      
+          <div id="searchWrapper" class="flex gap-2 border-gray-900 bg-gray-100 rounded-xl px-2 py-2 items-center">
+            <span class="text-lg text-black"><i class="bi bi-search"></i></span>
+            <input id="searchInput" class="flex-1 bg-transparent h-full outline-none border-0" type="text" placeholder="search product">
+            <span class="text-3xl text-black"><i class="bi bi-filter-right"></i></span>
+          </div>
+      
+        </header>
+      
+        <main class="mt-14 md:max-w-[60%] md:mx-auto">
+          <div class="flex items-center gap-2 justify-between">
+            <p id="searchResultTitle" class="text-lg font-semibold text-dark-txt line-clamp-1 text-ellipsis whitespace-nowrap">Results for "kgasg;lkdgh;lfdghdf;glhdfgl;hdfgl;fdshdflh"<p>
+            <p id="searchdetail" class="cursor-pointer font-semibold whitespace-nowrap text-dark-txt">clear all</p>
+          </div>
+      
+      
+          <!-- grid-cols-main-mobile-responsive  -->
+          <div id="resultWrapper" class="products grid gap-5 overflow-y-scrol">
+      
+       
+          </div>
+        </main>
+      
+      
+        
+        <script type="module" src="./js/search.js"></script>
+      
+      </body>
+<!-- <body class="w-screen h-screen overflow-x-hidden flex flex-col">
 
-<div class="container w-full h-full overflow-x-hidden">
-    <header class="w-full flex justify-center items-center gap-5 p-3 mt-5 hover:border-2 rounded-full">
+    <header id="searchWrapper" class="w-full flex justify-center items-center gap-5 p-3 mt-5 hover:border-2 rounded-full">
         <i class="bi bi-search"></i>
-        <input class="flex-1 outline-0" type="text" placeholder="Search">
+        <input id="searchInput" class="flex-1 outline-0" type="text" placeholder="Search">
         <i class="bi bi-sliders"></i>
     </header>
 
     <section class="w-full h-full flex flex-col items-start">
         <div class="w-full flex justify-between items-center px-5 py-4 border-b-2 border-slate-200 font-semibold ">
             <h4>Recent</h4>
-            <h4>Clear All</h4>
+            <h4 id="searchdetail">Clear All</h4>
         </div>
-<div class="w-full">
+<div id="resultWrapper"  class="w-full">
   <div class="w-full py-3 px-4 flex justify-between items-center">
     <p class="text-slate-500">Running Jordan</p> 
     <div class="border border-slate-700 rounded-3xl"><i class="bi bi-x-lg p-1"></i></div>
@@ -109,12 +138,12 @@
 </div>
 
 <div class="w-full flex justify-between px-3 py-2 font-bold ">
-  <p>Results for " <span>Nike</span>"</p>
+  <p id="searchResultTitle">Results for " <span>Nike</span>"</p>
 <p> <span>0</span> found</p>
 </div>
         
 
-<div id="not-found" class=" hidden w-full h-full flex flex-col justify-start items-center px-10 py-10 gap-3">
+<div id="not-found" class=" w-full h-full flex flex-col justify-start items-center px-10 py-10 gap-3  hidden">
 <img src="../src/img/notfound.PNG" alt="clipboard">
   <h1 class="text-2xl font-extrabold">Not Found</h1>
   <p class="flex text-center justify-center items-center text-lg">Sorry, the keyword you entered cannot be found, please check again or search with another keyword.  </p>
@@ -152,10 +181,7 @@
     </div>
   </div> 
     
-</div>
-    
 
-
-    
-</body>
+<script type="module" src="./js/search.js"></script>
+</body> -->
 </html>

@@ -1,6 +1,6 @@
 
-import { Catch } from "../utilities/catch.js";
-import { Page } from "../utilities/page.js";
+import { Catch } from "./catch.js";
+import { Page } from "./page.js";
 const storage = new Catch();
 const page = new Page();
 const shippingList = document.querySelectorAll('.choosshipping');

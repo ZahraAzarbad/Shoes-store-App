@@ -1,8 +1,8 @@
-import { Request } from "../services/request.js";
-import { Page } from "../utilities/page.js";
-import { Url } from "../utilities/url.js";
-import { Catch } from "../utilities/catch.js";
-import { Order } from "../model/order.js";
+import { Request } from "./request.js";
+import { Page } from "./page.js";
+import { Url } from "./url.js";
+import { Catch } from "./catch.js";
+import { Order } from "./order.js";
 
 const page = new Page();
 const url = new Url();
@@ -52,7 +52,7 @@ async function updateOrders() {
     console.log(cart);
   };
 
-  page.go('order');
+  page.go('orders');
  
 
 }

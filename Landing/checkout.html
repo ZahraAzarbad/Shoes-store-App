@@ -57,18 +57,14 @@
           };
         </script>
         <style type="text/tailwindcss">
-          @layer utilities {
-            .btn-color {
-              background-color: #475569;
-            }
-            .icon-color {
-              color: #475569;
-            }
-            .slate-900 {
-        --tw-bg-opacity: 1;
-        background-color: rgb(15 23 42 / var(--tw-bg-opacity));
-    }
-          }
+           @layer components {
+        .remove-cart{
+    @apply fixed inset-0 flex flex-col md:justify-center md:items-center justify-end
+  }
+  .card{
+    @apply bg-white shadow-lg shadow-slate-100 flex gap-4 rounded-3xl p-5 flex-1
+  }
+}
         </style>
         <link
           class="rounded-full"
@@ -112,7 +108,7 @@
                     <p id="addressName" class="font-bold text-dark-txt text-lg">Home</p>
                     <p id="currentAddress" class="text-sm text-gray-500 line-clamp-1 text-ellipsis">tonekabon,mazandaran,123</p>
                   </div>
-                  <span  class="text-slate-900 text-xl">
+                  <span id="go-shipping"  class="text-slate-900 text-xl">
                     <i class="bi bi-pen-fill"></i>
                   </span>
               </div>
